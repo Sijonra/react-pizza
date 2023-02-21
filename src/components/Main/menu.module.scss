@@ -1,0 +1,144 @@
+.sectionMenu{
+  padding: 40px;
+}
+.sectionTitle{
+  margin-bottom: 36px;
+  font-weight: 700;
+  font-size: 32px;
+  color: #000000;
+}
+.menu{
+
+}
+.cards{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 64px;
+;
+}
+.card{
+  max-width: 280px;
+}
+.cardImage{
+  width: 260px;
+  height: 260px;
+  display: block;
+  margin: 0 auto;
+}
+.title{
+  font-weight: 800;
+  font-size: 20px;
+  text-align: center;
+  color: #000000;
+  margin-bottom: 24px;
+}
+.config{
+  background: #F3F3F3;
+  border-radius: 10px;
+  padding: 8px 4px;
+  max-width: 280px;
+  .blockSelector{
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    li{
+      padding: 10px 30px;
+      font-weight: 700;
+      font-size: 14px;
+      color: #2C2C2C;
+      background: #F3F3F3;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+      border-radius: 5px;
+      &:not(:last-child){
+        margin-right: 6px;
+      }
+      &:hover, &:active{
+        color: #2C2C2C;
+        background: #ffffff;
+      }
+      transition: .6s;
+      cursor: pointer;
+    }
+    .configActive{
+      color: #2C2C2C;
+      background: #ffffff;
+    }
+  }
+  .sizeSelector{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    li{
+      padding: 10px 20px;
+      font-weight: 700;
+      font-size: 14px;
+      color: #2C2C2C;
+      background: #F3F3F3;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.04);
+      border-radius: 5px;
+      &:not(:last-child){
+        margin-right: 6px;
+      }
+      &:hover, &:active{
+        color: #2C2C2C;
+        background: #ffffff;
+      }
+      transition: .6s;
+      cursor: pointer;
+    }
+    .configActive{
+      color: #2C2C2C;
+      background: #ffffff;
+    }
+  }
+}
+.cardBottom{
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.price{
+  font-weight: 700;
+  font-size: 22px;
+}
+.addToCart{
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid #EB5A1E;
+  border-radius: 30px;
+  span{
+    margin: 0 8px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #EB5A1E;
+  }
+  .count{
+    padding-top: 3px;
+    width: 22px;
+    height: 19px;
+    background: #EB5A1E;
+    border-radius: 100%;
+    font-weight: 700;
+    font-size: 13px;
+    color: #FFFFFF;
+  }
+  &:hover, &:active{
+    background: #FE5F1E;
+    border: 1px solid #FE5F1E;
+    border-radius: 30px;
+    span{
+      color: #FFFFFF;
+    }
+    svg{
+      path{
+        fill: #FFFFFF;;
+      }
+    }
+  }
+  transition: .4s;
+  cursor: pointer;
+}

@@ -1,0 +1,46 @@
+.categories{
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.types{
+
+}
+.sorting{
+  display: flex;
+  align-items: center;
+  p{
+    margin: 0 8px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #2C2C2C;
+  }
+  span{
+    font-weight: 400;
+    font-size: 14px;
+    color: #FE5F1E;
+  }
+}
+.sortButton{
+  padding: 16px 32px;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  color: #2C2C2C;
+  background: #F9F9F9;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 1s;
+  &:hover,&:active{
+    background: #282828;
+    color: white;
+  }
+  &:not(:last-child){
+    margin-right: 8px;
+  }
+}
+.sortButtonActive{
+  background: #282828;
+  color: white;
+}
