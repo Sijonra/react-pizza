@@ -5,7 +5,9 @@
   justify-content: space-between;
 }
 .types{
-
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 .sorting{
   display: flex;

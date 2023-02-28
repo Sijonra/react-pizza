@@ -13,6 +13,7 @@
 .cards{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
   row-gap: 64px;
 ;
 }
@@ -64,11 +65,17 @@
       color: #2C2C2C;
       background: #ffffff;
     }
+    .configDisabled{
+      font-weight: 700;
+      font-size: 14px;
+      color: #b2b2b2;
+      pointer-events: none;
+    }
   }
   .sizeSelector{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     li{
       padding: 10px 20px;
       font-weight: 700;

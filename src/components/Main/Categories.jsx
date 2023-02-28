@@ -1,15 +1,21 @@
 import style from './main.module.scss'
+import {useState} from "react";
 
 const Categories = props =>{
+
+    const [activeIndex, setActiveIndex] = useState(0);
+    const categories = ['все','Мясные','Вегетарианская','Гриль','Острые','Закрытые']
+
     return(
         <section className={style.categories}>
             <div className={style.types}>
-                <a href="" className={style.sortButton + ' ' + style.sortButtonActive}>Все</a>
-                <a href="" className={style.sortButton}>Мясные</a>
-                <a href="" className={style.sortButton}>Вегетарианская</a>
-                <a href="" className={style.sortButton}>Гриль</a>
-                <a href="" className={style.sortButton}>Острые</a>
-                <a href="" className={style.sortButton}>Закрытые</a>
+                {
+                    categories.map((category, index)=>{
+                        return(
+                            <p href="" onClick={()=>setActiveIndex(index)} className={activeIndex === index ? style.sortButton + ' ' + style.sortButtonActive: style.sortButton}>{category}</p>
+                        )
+                    })
+                }
             </div>
             <div className={style.sorting}>
                 <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
