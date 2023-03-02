@@ -20,7 +20,7 @@ const PizzaCard = props =>{
                         {
                             props.sizes.map((size, index)=>{
                                 return(
-                                    <li onClick={()=>{setActiveSize(index)}} className={activeSize === index ? style.configActive : ''}>{size} см.</li>
+                                    <li key={index} onClick={()=>{setActiveSize(index)}} className={activeSize === index ? style.configActive : ''}>{size} см.</li>
                                 )
                             })
                         }
