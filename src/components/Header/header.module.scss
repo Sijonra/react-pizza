@@ -8,6 +8,7 @@
 .logos{
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 .name{
   font-weight: 800;
@@ -31,6 +32,7 @@
   &:hover, &:active{
     background: #ef9878;
   }
+  text-decoration: none;
 }
 .logoDesc{
   margin-left: 16px;

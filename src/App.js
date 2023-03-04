@@ -1,19 +1,34 @@
+import React from "react";
 import './Normalize.scss'
 import './App.css';
-import Header from './components/Header/Header'
 import Main from "./components/Main/Main";
 import Cart from "./components/Cart/Cart";
 import CartEmpty from "./components/Cart/CartEmpty";
+import {createBrowserRouter, Link, RouterProvider} from "react-router-dom";
+import PageNotFound from "./components/Main/PageNotFound";
+
+const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Main />,
+        errorElement: <PageNotFound />,
+    },
+    {
+        path: '/cart',
+        element: <Cart />
+    },
+    {
+        path: 'emptyCart',
+        element: <CartEmpty />
+    }
+]);
 
 function App() {
-  return (
-    <div className="App">
-        <Header />
-        <Main />
-        {/*<Cart />*/}
-        {/*<CartEmpty />*/}
-    </div>
-  );
+    return (
+        <div className='App'>
+            <RouterProvider router={router} />
+        </div>
+    );
 }
 
 export default App;

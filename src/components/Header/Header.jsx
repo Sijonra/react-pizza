@@ -1,17 +1,18 @@
 import style from './header.module.scss'
 import logo from '../../../src/assets/png/img.png'
+import {Link} from "react-router-dom";
 
 const Header = props =>{
     return(
         <header className={style.header}>
-            <div className={style.logos}>
+            <Link to={'/'} className={style.logos}>
                 <img src={logo} alt=""/>
                 <div className={style.logoDesc}>
                     <h1 className={style.name}>React Pizza</h1>
                     <p className={style.desc}>самая вкусная пицца во вселенной</p>
                 </div>
-            </div>
-            <div className={style.cart}>
+            </Link>
+            <Link to={'/cart'} className={style.cart}>
                 <p className={style.price}>520 ₽</p>
                 <div className={style.countCart}>
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +22,7 @@ const Header = props =>{
                     </svg>
                     <p className={style.count}>3</p>
                 </div>
-            </div>
+            </Link>
         </header>
     )
 }
