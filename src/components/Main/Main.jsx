@@ -7,7 +7,6 @@ const Main = props =>{
     return(
         <main className={style.main}>
             <Header />
-            <Categories />
             <Menu />
         </main>
     )

@@ -4,7 +4,7 @@ import './App.css';
 import Main from "./components/Main/Main";
 import Cart from "./components/Cart/Cart";
 import CartEmpty from "./components/Cart/CartEmpty";
-import {createBrowserRouter, Link, RouterProvider} from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import PageNotFound from "./components/Main/PageNotFound";
 
 const router = createBrowserRouter([

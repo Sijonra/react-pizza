@@ -13,9 +13,24 @@
 .cards{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-items: center;
   align-items: center;
   row-gap: 64px;
-;
+}
+@media (max-width: 1300px) {
+  .cards{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 950px) {
+  .cards{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 650px) {
+  .cards{
+    grid-template-columns: 1fr;
+  }
 }
 .card{
   max-width: 280px;
