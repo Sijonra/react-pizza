@@ -1,6 +1,7 @@
 import style from './header.module.scss'
 import logo from '../../../src/assets/png/img.png'
 import {Link} from "react-router-dom";
+import Search from "../Main/Search";
 
 const Header = props =>{
     return(
@@ -12,6 +13,7 @@ const Header = props =>{
                     <p className={style.desc}>самая вкусная пицца во вселенной</p>
                 </div>
             </Link>
+            <Search searchValue={props.searchValue} setSearchValue={props.setSearchValue} />
             <Link to={'/cart'} className={style.cart}>
                 <p className={style.price}>520 ₽</p>
                 <div className={style.countCart}>

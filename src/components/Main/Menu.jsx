@@ -25,6 +25,16 @@ const Menu = props => {
 
     console.log(activeIndex + ' ' + categoryProperty)
 
+    const skeleton =  [...new Array(8)].map((item, index) => {return <SkeletonMenu key={index}/>})
+    const pizzas =  items.map(pizza => {
+        return (
+            <PizzaCard key={pizza.id} name={pizza.name} img={pizza.imageUrl}
+                       price={pizza.price} sizes={pizza.sizes} types={pizza.types}/>
+        )
+    })
+
+    console.log(props.searchValue)
+
     return (
         <section className={style.sectionMenu}>
             <Categories activeIndex={activeIndex} setActiveIndex={setActiveIndex} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
@@ -34,18 +44,9 @@ const Menu = props => {
                     {
                         isLoading
                             ?
-                            [...new Array(8)].map((item, index) => {
-                                return <SkeletonMenu key={index}/>
-                            })
+                            skeleton
                             :
-                            (
-                                items.map(pizza => {
-                                    return (
-                                        <PizzaCard key={pizza.id} name={pizza.name} img={pizza.imageUrl}
-                                                   price={pizza.price} sizes={pizza.sizes} types={pizza.types}/>
-                                    )
-                                })
-                            )
+                            pizzas
                     }
                 </div>
             </div>
