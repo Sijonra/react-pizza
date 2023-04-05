@@ -13,7 +13,7 @@ const Header = props =>{
                     <p className={style.desc}>самая вкусная пицца во вселенной</p>
                 </div>
             </Link>
-            <Search searchValue={props.searchValue} setSearchValue={props.setSearchValue} />
+            <Search />
             <Link to={'/cart'} className={style.cart}>
                 <p className={style.price}>520 ₽</p>
                 <div className={style.countCart}>

@@ -1,12 +1,14 @@
 import style from './menu.module.scss'
 import PizzaCard from "./PizzaCard";
 import axios from "axios";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import SkeletonMenu from "../skeletonComponents/SkeletonMenu";
 import Categories from "./Categories";
+import {SearchContext} from "./Main";
 
 const Menu = props => {
 
+    const {searchValue} = useContext(SearchContext)
     const [activeCategory, setActiveCategory] = useState(0); // sort categories
     const [activeIndex, setActiveIndex] = useState(0); // categories
     const [items, setItems] = useState([])
@@ -23,17 +25,14 @@ const Menu = props => {
         })
     }, [activeIndex, activeCategory]);
 
-    console.log(activeIndex + ' ' + categoryProperty)
+    //console.log(activeIndex + ' ' + categoryProperty)
 
     const skeleton =  [...new Array(8)].map((item, index) => {return <SkeletonMenu key={index}/>})
-    const pizzas =  items.map(pizza => {
-        return (
-            <PizzaCard key={pizza.id} name={pizza.name} img={pizza.imageUrl}
-                       price={pizza.price} sizes={pizza.sizes} types={pizza.types}/>
-        )
+    const pizzas =  items.filter(obj=>{if (obj.name.toLowerCase().includes(searchValue.toLowerCase())) return true }).map(pizza => {
+        return <PizzaCard key={pizza.id} name={pizza.name} img={pizza.imageUrl} price={pizza.price} sizes={pizza.sizes} types={pizza.types}/>
     })
 
-    console.log(props.searchValue)
+    console.log(searchValue)
 
     return (
         <section className={style.sectionMenu}>

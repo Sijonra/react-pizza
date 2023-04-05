@@ -1,7 +1,9 @@
 import style from './main.module.scss'
 import Menu from "./Menu";
 import Header from "../Header/Header";
-import {useState} from "react";
+import {createContext, useContext, useState} from "react";
+
+export const SearchContext = createContext();
 
 const Main = props =>{
 
@@ -10,10 +12,11 @@ const Main = props =>{
 
     return(
         <main className={style.main}>
-            <Header searchValue={searchValue} setSearchValue={setSearchValue} />
-            <Menu searchValue={searchValue} />
+            <SearchContext.Provider value={{searchValue, setSearchValue}}>
+                <Header />
+                <Menu />
+            </SearchContext.Provider>
         </main>
     )
 }
-
 export default Main;
