@@ -32,7 +32,7 @@ const Menu = props => {
         return <PizzaCard key={pizza.id} name={pizza.name} img={pizza.imageUrl} price={pizza.price} sizes={pizza.sizes} types={pizza.types}/>
     })
 
-    console.log(searchValue)
+    //console.log(searchValue)
 
     return (
         <section className={style.sectionMenu}>
