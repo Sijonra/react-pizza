@@ -15,11 +15,13 @@ const router = createBrowserRouter([
     },
     {
         path: '/cart',
-        element: <Cart />
+        element: <Cart />,
+        errorElement: <PageNotFound />,
     },
     {
         path: 'emptyCart',
-        element: <CartEmpty />
+        element: <CartEmpty />,
+        errorElement: <PageNotFound />,
     }
 ]);
 
