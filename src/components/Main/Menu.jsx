@@ -11,13 +11,12 @@ import {increment, decrement} from "../../redux/slices/counterSlice";
 const Menu = props => {
 
     const {searchValue} = useContext(SearchContext)
-    const [activeCategory, setActiveCategory] = useState(0); // sort categories
-   // const [activeIndex, setActiveIndex] = useState(0); // categories
     const [items, setItems] = useState([])
     const [isLoading, toggleLoading] = useState(true);
     const sortCategories = ['rating', 'price','name']
     const activeCategories = useSelector((state) => state.sort.category)
-    let categoryProperty = sortCategories[activeCategory]
+    const activeSort = useSelector(state => state.sort.sorting)
+    let categoryProperty = sortCategories[activeSort]
 
     useEffect(() => {
         toggleLoading(true)
@@ -26,16 +25,12 @@ const Menu = props => {
             setItems(response.data)
             toggleLoading(false)
         })
-    }, [activeCategories, activeCategory]);
-
-    //console.log(activeIndex + ' ' + categoryProperty)
+    }, [activeCategories, activeSort]);
 
     const skeleton =  [...new Array(8)].map((item, index) => {return <SkeletonMenu key={index}/>})
     const pizzas =  items.filter(obj=>{if (obj.name.toLowerCase().includes(searchValue.toLowerCase())) return true }).map(pizza => {
         return <PizzaCard key={pizza.id} name={pizza.name} img={pizza.imageUrl} price={pizza.price} sizes={pizza.sizes} types={pizza.types}/>
     })
-
-    //console.log(searchValue)
 
     const count = useSelector((state) => state.counter.value)
     const dispatch = useDispatch()
@@ -47,7 +42,7 @@ const Menu = props => {
                 <h1>{count}</h1>
                 <button onClick={()=>dispatch(decrement())}>-</button>
             </div>
-            <Categories activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
+            <Categories />
             <h1 className={style.sectionTitle}>Все пиццы</h1>
             <div className={style.menu}>
                 <div className={style.cards}>

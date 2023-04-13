@@ -26,7 +26,7 @@ const Categories = props =>{
                     })
                 }
             </div>
-            <Sorting activeCategory={props.activeCategory} setActiveCategory={props.setActiveCategory}/>
+            <Sorting />
         </section>
     )
 }
