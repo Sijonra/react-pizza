@@ -10,7 +10,8 @@ import {increment, decrement} from "../../redux/slices/counterSlice";
 
 const Menu = props => {
 
-    const {searchValue} = useContext(SearchContext)
+    //const {searchValue} = useContext(SearchContext)
+    const searchValue = useSelector(state=> state.search.searchValue)
     const [items, setItems] = useState([])
     const [isLoading, toggleLoading] = useState(true);
     const sortCategories = ['rating', 'price','name']
@@ -56,7 +57,6 @@ const Menu = props => {
                 </div>
             </div>
         </section>
-
     )
 }
 
