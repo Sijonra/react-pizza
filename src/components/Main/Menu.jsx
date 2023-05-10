@@ -1,16 +1,19 @@
 import style from './menu.module.scss'
 import PizzaCard from "./PizzaCard";
 import axios from "axios";
-import {useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import SkeletonMenu from "../skeletonComponents/SkeletonMenu";
 import Categories from "./Categories";
-import {SearchContext} from "./Main";
 import {useSelector, useDispatch} from "react-redux";
-import {increment, decrement} from "../../redux/slices/counterSlice";
+import qs from 'qs'
+import {setFilters} from '../../redux/slices/sortSlice'
+import {useNavigate} from 'react-router-dom'
 
 const Menu = props => {
 
     //const {searchValue} = useContext(SearchContext)
+    const dispatch = useDispatch()
+    const navigate = useNavigate();
     const searchValue = useSelector(state=> state.search.searchValue)
     const [items, setItems] = useState([])
     const [isLoading, toggleLoading] = useState(true);
@@ -18,6 +21,25 @@ const Menu = props => {
     const activeCategories = useSelector((state) => state.sort.category)
     const activeSort = useSelector(state => state.sort.sorting)
     let categoryProperty = sortCategories[activeSort]
+
+    useEffect(()=>{
+        if(window.location.search){
+            const urlParams = qs.parse(window.location.search.substring(1));
+            console.log(urlParams)
+            dispatch(setFilters(urlParams))
+        }
+
+    }, [])
+
+
+    useEffect(()=>{
+        const queryString = qs.stringify({
+            activeCategories: activeCategories,
+            activeSort: activeSort,
+        })
+        console.log(queryString)
+        navigate('?' + queryString)
+    }, [activeCategories, activeSort])
 
     useEffect(() => {
         toggleLoading(true)
@@ -34,15 +56,10 @@ const Menu = props => {
     })
 
     const count = useSelector((state) => state.counter.value)
-    const dispatch = useDispatch()
+
 
     return (
         <section className={style.sectionMenu}>
-            <div>
-                <button onClick={()=>dispatch(increment())}>+</button>
-                <h1>{count}</h1>
-                <button onClick={()=>dispatch(decrement())}>-</button>
-            </div>
             <Categories />
             <h1 className={style.sectionTitle}>Все пиццы</h1>
             <div className={style.menu}>

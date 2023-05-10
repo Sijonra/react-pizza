@@ -4,6 +4,7 @@ const initialState = {
     category: 0,
     sorting: 0,
     popUpStatus: false,
+    //categoryProperty: 0,
 }
 
 export const sortSlice = createSlice({
@@ -19,8 +20,13 @@ export const sortSlice = createSlice({
         changePopUpStatus: (state) => {
           state.popUpStatus = !state.popUpStatus;
         },
+        setFilters: (state, action) =>{
+            state.category = Number(action.payload.activeCategories)
+            state.sorting = action.payload.activeSort
+
+        }
     }
 })
 
-export const {setCategory, setSorting, changePopUpStatus} = sortSlice.actions
+export const {setCategory, setSorting, changePopUpStatus, setFilters} = sortSlice.actions
 export default sortSlice.reducer
